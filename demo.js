@@ -131,6 +131,9 @@ function applyCopy() {
   });
   document.getElementById("city-search").placeholder = copy().city.search;
   document.getElementById("place-search").placeholder = copy().visited.search;
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+    el.placeholder = lookup(el.dataset.i18nPlaceholder);
+  });
   document.querySelectorAll(".lang-btn").forEach(function (btn) {
     btn.classList.toggle("is-on", btn.dataset.lang === state.lang);
   });

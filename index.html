@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Worthysight</title>
+    <title>Mirabil</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site">
-      <p class="brand">Worthysight</p>
+      <p class="brand">Mirabil</p>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" class="lang-btn is-on" data-lang="en">EN</button>
         <button type="button" class="lang-btn" data-lang="hu">HU</button>
@@ -18,8 +18,9 @@
     <main class="page">
       <section class="copy">
         <h1 data-i18n="land.title"></h1>
+        <p class="copy-lead" data-i18n="land.lead"></p>
         <p data-i18n="land.p1"></p>
-        <p data-i18n="land.p2"></p>
+        <blockquote class="copy-quote" data-i18n="land.quote"></blockquote>
         <p data-i18n="land.p3"></p>
       </section>
 
@@ -142,7 +143,7 @@
                   </section>
 
                   <section class="scene scene-close" id="scene-close" data-scene="close">
-                    <p class="close-mark">Worthysight</p>
+                    <p class="close-mark">Mirabil</p>
                     <h1 data-i18n="close.line1"></h1>
                     <p class="close-note" data-i18n="close.note"></p>
                   </section>
@@ -167,7 +168,50 @@
       <p class="copy-note" data-i18n="land.note"></p>
     </main>
 
+    <section class="invite">
+      <form id="form-story" class="invite-block" method="POST" target="form-frame">
+        <h2 data-i18n="form.storyTitle"></h2>
+        <p class="invite-lead" data-i18n="form.storyLead"></p>
+        <div class="invite-fields">
+          <label class="sr-only" for="story-text" data-i18n="form.storyField"></label>
+          <textarea
+            id="story-text"
+            name="story"
+            rows="4"
+            required
+            data-i18n-placeholder="form.storyPlaceholder"
+          ></textarea>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="kind" value="story" />
+          <button type="submit" class="btn btn-ink" data-i18n="form.send"></button>
+        </div>
+        <p class="invite-done" data-i18n="form.storyDone"></p>
+      </form>
+
+      <form id="form-notify" class="invite-block" method="POST" target="form-frame">
+        <h2 data-i18n="form.notifyTitle"></h2>
+        <div class="invite-fields invite-row">
+          <label class="sr-only" for="notify-email" data-i18n="form.emailField"></label>
+          <input
+            id="notify-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            data-i18n-placeholder="form.emailPlaceholder"
+          />
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="kind" value="notify" />
+          <button type="submit" class="btn btn-terra" data-i18n="form.notify"></button>
+        </div>
+        <p class="invite-done" data-i18n="form.notifyDone"></p>
+      </form>
+    </section>
+
+    <iframe class="form-frame" name="form-frame" title=""></iframe>
+
     <script src="i18n.js"></script>
     <script src="demo.js"></script>
+    <script src="forms.js"></script>
   </body>
 </html>

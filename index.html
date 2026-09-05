@@ -1,0 +1,173 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Worthysight</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site">
+      <p class="brand">Worthysight</p>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-on" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="hu">HU</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="copy">
+        <h1 data-i18n="land.title"></h1>
+        <p data-i18n="land.p1"></p>
+        <p data-i18n="land.p2"></p>
+        <p data-i18n="land.p3"></p>
+      </section>
+
+      <section class="demo-col" aria-labelledby="demo-kicker">
+        <div class="stage">
+          <header class="topbar">
+            <p class="demo-kicker" id="demo-kicker" data-i18n="land.kicker"></p>
+            <button type="button" class="replay" id="replay" data-i18n="replay">Replay</button>
+          </header>
+
+          <p class="caption" id="caption" aria-live="polite"></p>
+
+          <div class="phone-wrap">
+            <div class="phone" id="phone">
+              <div class="phone-notch" aria-hidden="true"></div>
+              <div class="phone-screen" id="phone-screen">
+                <div class="status" aria-hidden="true">
+                  <span>9:41</span>
+                  <span class="status-icons">
+                    <span class="sig"></span>
+                    <span class="wifi"></span>
+                    <span class="bat"></span>
+                  </span>
+                </div>
+
+                <div class="scenes">
+                  <section class="scene is-on" id="scene-hook" data-scene="hook">
+                    <article class="ig">
+                      <header class="ig-head">
+                        <span class="ig-avatar"></span>
+                        <div>
+                          <p class="ig-user" data-i18n="hook.user"></p>
+                          <p class="ig-time" data-i18n="hook.time"></p>
+                        </div>
+                      </header>
+                      <div class="ig-shot shot" data-place="sagrada">
+                        <img src="images/sagrada.webp" alt="" />
+                        <span class="ig-badge" data-i18n="hook.badge"></span>
+                      </div>
+                      <div class="ig-actions" aria-hidden="true">
+                        <svg class="ig-heart" viewBox="0 0 24 24" width="22" height="22">
+                          <path
+                            d="M12 20s-7-4.4-9.2-8.2C1.2 8.8 3 6 6.1 6c1.7 0 3.1.9 3.9 2.2C10.8 6.9 12.2 6 13.9 6c3.1 0 4.9 2.8 3.3 5.8C19 15.6 12 20 12 20z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                          />
+                        </svg>
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                          <path
+                            d="M4 6h16v10H8l-4 3V6z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                          />
+                        </svg>
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                          <path
+                            d="M4 12l16-7-5 16-3-6-8-3z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                          />
+                        </svg>
+                      </div>
+                      <p class="ig-likes" data-i18n="hook.likes"></p>
+                      <p class="ig-body">
+                        <strong data-i18n="hook.user"></strong>
+                        <span data-i18n="hook.body"></span>
+                      </p>
+                    </article>
+                  </section>
+
+                  <section class="scene" id="scene-city" data-scene="city">
+                    <div class="app-head">
+                      <p class="wordmark" data-i18n="city.wordmark"></p>
+                      <h1 data-i18n="city.title"></h1>
+                      <p class="lede" data-i18n="city.subtitle"></p>
+                    </div>
+                    <label class="search">
+                      <input id="city-search" type="text" autocomplete="off" spellcheck="false" />
+                    </label>
+                    <ul class="city-list" id="city-list"></ul>
+                  </section>
+
+                  <section class="scene" id="scene-visited" data-scene="visited">
+                    <div class="app-head app-head-tight">
+                      <p class="eyebrow" data-i18n="visited.backCity"></p>
+                      <h1 data-i18n="visited.title"></h1>
+                    </div>
+                    <label class="search">
+                      <input id="place-search" type="text" autocomplete="off" spellcheck="false" />
+                    </label>
+                    <ul class="place-list" id="place-list"></ul>
+                    <button type="button" class="continue" id="continue" disabled data-i18n="visited.continue"></button>
+                  </section>
+
+                  <section class="scene scene-pairs" id="scene-pairs" data-scene="pairs">
+                    <div class="app-head app-head-tight">
+                      <h1 data-i18n="pairs.title"></h1>
+                      <p class="lede" data-i18n="pairs.hint"></p>
+                    </div>
+                    <p class="pair-count" id="pair-progress"></p>
+                    <div class="pair-row">
+                      <article class="card" id="card-a"></article>
+                      <article class="card" id="card-b"></article>
+                    </div>
+                    <div class="pair-actions">
+                      <span data-i18n="pairs.tooClose"></span>
+                      <span data-i18n="pairs.skip"></span>
+                    </div>
+                  </section>
+
+                  <section class="scene" id="scene-rank" data-scene="rank">
+                    <div class="app-head app-head-tight">
+                      <h1 data-i18n="rank.title"></h1>
+                      <p class="lede" data-i18n="rank.subtitle"></p>
+                    </div>
+                    <ol class="rank-list" id="rank-list"></ol>
+                  </section>
+
+                  <section class="scene scene-close" id="scene-close" data-scene="close">
+                    <p class="close-mark">Worthysight</p>
+                    <h1 data-i18n="close.line1"></h1>
+                    <p class="close-note" data-i18n="close.note"></p>
+                  </section>
+                </div>
+              </div>
+              <div class="home-bar" aria-hidden="true"></div>
+              <span class="tap" id="tap"></span>
+            </div>
+          </div>
+
+          <ol class="dots" id="dots" aria-hidden="true">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+        </div>
+      </section>
+
+      <p class="copy-note" data-i18n="land.note"></p>
+    </main>
+
+    <script src="i18n.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>

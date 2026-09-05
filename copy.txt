@@ -1,0 +1,200 @@
+Worthysight — szövegek átíráshoz
+================================
+Ez a fájl csak a szövegeket tartalmazza. Ha kész vagy, szólj, és átmásolom az oldalra.
+Az EN és a HU sort tartsd meg egymás alatt. A címkét (pl. "Cím:") ne töröld.
+
+
+OLDAL (landing)
+---------------
+
+Gomb
+EN: Replay
+HU: Újra
+
+Cím
+EN: Have you ever visited a place hyped up online, only to be disappointed? Crowds, long waits, and a reality that barely looked like the photos.
+HU: Jártál már úgy, hogy egy interneten hypolt hely csalódást okozott? Tömeg, várakozás, és a valóság alig hasonlított a fotókhoz.
+
+1. bekezdés
+EN: On Tripadvisor and Google, famous sights sit between 4.6 and 4.8. Park Güell does. Palau de la Música does. You still don't know which hour to give away.
+HU: A hagyományos csillagos értékelések nem reprezentatívak. Szinte minden népszerű látványosság 4,3–4,7 csillag körül van, mert az emberek nem szeretik bevallani maguknak, hogy kidobott pénz és idő volt.
+
+2. bekezdés
+EN: We came up with another way to rate a place: instead of giving it a star rating, you compare it to places you’ve already visited. You’re shown two places and asked to decide which one was better or more memorable.
+HU: Eszünkbe jutott egy másik másik módszer: ahelyett, hogy csillagokkal értékelnél egy helyet, össze hasonlítod azokkal a helyekkel, ahol már jártál. Szembe állítja egy olyan hellyel, ahol már jártál, és el kell dönteni, melyik volt jobb, emlékezetesebb.
+
+3. bekezdés
+EN: No reviews to write, no complicated rating scales to figure out. Just one simple choice: this or that? Over time, this creates ratings based on real experiences, making them far more representative and meaningful.
+HU: Nem kell értékeléseket írni, bonyolult skálákon értékelni, csak kettő közül választani: ez vagy az?	Ezzel a módszerrel idővel tapasztalatokon alapuló, sokkal reprezentatív értékelések jönnek létre.
+
+
+Demó fölötti kis cím
+EN: A look at how Barcelona attractions compare
+HU: Egy példa Barcelona látványoságainak összehasonlításáról
+
+Záró megjegyzés
+EN: This isn’t a finished app — it’s just a demo. If you’ve ever stood in line for a 4.8-rated place only to be completely disappointed, this project might be interesting to you too. 	We’re curious to know if others have had similar experiences.
+HU: Ez nem egy kész app, csak egy demo. Ha te is álltál már sorban egy 4,8-as értékelésű helyen, ami teljes csalódás volt, akkor érdekes lehet számodra is ez a projekt. Kíváncsiak vagyunk, másnak is volt-e hasonló tapasztalata.
+
+
+DEMÓ — magyarázó sor a telefon fölött
+-------------------------------------
+Hat jelenet, ebben a sorrendben.
+
+1. Instagram
+EN: The Sagrada Familia was at the top of every list, but in reality, it was far from the best experience.
+HU: Minden lista tetején a Sagrada Familia szerepelt, de valójában messze nem ez volt a legjobb élmény.
+
+2. Városválasztás
+EN: Choose a city you’ve already visited.
+HU: Válassz egy várost, ahol voltál már.
+
+3. Helyszínek pipálása
+EN: Select the places you’ve visited. You’ll compare them later.
+HU: Válaszd ki azokat a helyeket, amiket megnéztél. Ezeket kell majd később összehasonlítani.
+
+4. Párosítás
+EN: Choose which of the two places was the better experience. It’s much easier to rate, and it results in a more accurate ranking.
+HU: Két hely közül kell kiválaszd amelyik jobb élményként maradt meg. Sokkal könnyebb értékelni, és pontosabb rangsort is eredményez.
+
+5. Sorrend
+EN: Park Güell is highly ranked everywhere, but for you, it only comes in fifth.
+HU: A Park Güell mindenhol toplistás, de neked csak az ötödik helyen szerepel. 	
+
+6. Zárás
+EN: This makes the ranking much more representative and gives each place a rating based on real experiences.
+HU: A lista így sokkal reprezentatív lesz, és valós értékeléseket ad a helyeknek.
+
+
+DEMÓ — a telefonban
+-------------------
+
+Instagram-poszt
+Felhasználó EN: travel.lists
+Felhasználó HU: travel.lists
+Idő EN: 2d
+Idő HU: 2 nap
+Kedvelések EN: 48,201 likes
+Kedvelések HU: 48 201 kedvelés
+Szöveg EN: The Sagrada Família is a MUST in Barcelona. 4.8 stars for a reason.
+Szöveg HU: A Sagrada Família KÖTELEZŐ Barcelonában. 4,8 csillag, nem véletlenül.
+Jelvény EN: 4.8
+Jelvény HU: 4,8
+
+Város képernyő
+Wordmark EN: Worthysight
+Wordmark HU: Worthysight
+Cím EN: Where have you been?
+Cím HU: Hol jártál?
+Alcím EN: Rank the sights you actually saw.
+Alcím HU: Rangsorold a helyeket, amiket megnéztél.
+Kereső EN: Search a city
+Kereső HU: Város keresése
+
+Város 1 név EN: Barcelona
+Város 1 név HU: Barcelona
+Város 1 ország EN: Spain
+Város 1 ország HU: Spanyolország
+
+Város 2 név EN: Rome
+Város 2 név HU: Róma
+Város 2 ország EN: Italy
+Város 2 ország HU: Olaszország
+
+Város 3 név EN: Lisbon
+Város 3 név HU: Lisszabon
+Város 3 ország EN: Portugal
+Város 3 ország HU: Portugália
+
+Város 4 név EN: Prague
+Város 4 név HU: Prága
+Város 4 ország EN: Czechia
+Város 4 ország HU: Csehország
+
+Látogatott helyek
+Vissza EN: Barcelona
+Vissza HU: Barcelona
+Cím EN: What did you visit?
+Cím HU: Mit néztél meg?
+Kereső EN: Search sights
+Kereső HU: Látványosság keresése
+Gomb EN: Continue
+Gomb HU: Tovább
+
+Párosítás
+Cím EN: Which one's better?
+Cím HU: Melyik volt jobb?
+Hint EN: Forget the hype. Pick the place that was actually better — just the experience.
+Hint HU: Azt válaszd, ahol jobban érezted magad.
+Kártyán a város EN: Barcelona
+Kártyán a város HU: Barcelona
+Túl szoros EN: Too close
+Túl szoros HU: Túl szoros
+Kihagy EN: Skip
+Kihagy HU: Kihagyom
+Haladás EN: 1 of 4
+Haladás HU: 1 / 4
+(A számokat a demó magától rakja be. Itt csak a "of" / "/" forma a lényeg.)
+
+Sorrend
+Cím EN: Your ranking
+Cím HU: A te sorrended
+Alcím EN: Barcelona · from nine comparisons
+Alcím HU: Barcelona · kilenc összehasonlításból
+Címke megérte EN: Worth it
+Címke megérte HU: Megérte
+Címke túltolt EN: Overhyped
+Címke túltolt HU: Túlértékelt
+Pontszám előtag EN: Google
+Pontszám előtag HU: Google
+
+Záró képernyő
+Sor 1 EN: Stars are noisy.
+Sor 1 HU: A csillagok pontatlanok.
+Megjegyzés EN: The comparison-based method generates much more honest ratings.
+Megjegyzés HU: Az összehasonlításos módszer sokkal őszintébb értékeléseket generál.
+
+
+HELYEK A LISTÁN
+---------------
+Név + típus. A nevek általában maradhatnak.
+
+Sagrada Família
+Típus EN: Basilica
+Típus HU: Bazilika
+
+Park Güell
+Típus EN: Hilltop park
+Típus HU: Park a dombon
+
+La Rambla
+Típus EN: Boulevard
+Típus HU: Sétány
+
+La Boqueria
+Típus EN: Food market
+Típus HU: Piac
+
+Palau de la Música
+Típus EN: Concert hall
+Típus HU: Hangversenyterem
+
+Hospital de Sant Pau
+Típus EN: Modernist site
+Típus HU: Modernista helyszín
+
+Parc de la Ciutadella
+Típus EN: City park
+Típus HU: Városi park
+
+Casa Batlló
+Típus EN: Gaudí house
+Típus HU: Gaudí-ház
+
+Bunkers del Carmel
+Típus EN: Viewpoint
+Típus HU: Kilátó
+
+Camp Nou
+Típus EN: Stadium
+Típus HU: Stadion

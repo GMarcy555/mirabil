@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Mirabil</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -162,53 +162,62 @@
             <li></li>
             <li></li>
           </ol>
+
+          <p class="copy-note" data-i18n="land.note"></p>
         </div>
       </section>
 
-      <p class="copy-note" data-i18n="land.note"></p>
+      <section class="invite">
+        <form id="form-story" class="invite-block" method="POST" target="form-frame-story">
+          <h2 data-i18n="form.storyTitle"></h2>
+          <p class="invite-lead" data-i18n="form.storyLead"></p>
+          <div class="invite-fields">
+            <label class="sr-only" for="story-text" data-i18n="form.storyField"></label>
+            <textarea
+              id="story-text"
+              name="story"
+              rows="4"
+              required
+              data-i18n-placeholder="form.storyPlaceholder"
+            ></textarea>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="kind" value="story" />
+            <button type="submit" class="btn btn-ink">
+              <span class="btn-spin" aria-hidden="true"></span>
+              <span class="btn-idle" data-i18n="form.send"></span>
+              <span class="btn-wait" data-i18n="form.sending"></span>
+            </button>
+          </div>
+          <p class="invite-done" aria-live="polite" data-i18n="form.storyDone"></p>
+        </form>
+
+        <form id="form-notify" class="invite-block" method="POST" target="form-frame-notify">
+          <h2 data-i18n="form.notifyTitle"></h2>
+          <div class="invite-fields invite-row">
+            <label class="sr-only" for="notify-email" data-i18n="form.emailField"></label>
+            <input
+              id="notify-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              data-i18n-placeholder="form.emailPlaceholder"
+            />
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="kind" value="notify" />
+            <button type="submit" class="btn btn-terra">
+              <span class="btn-spin" aria-hidden="true"></span>
+              <span class="btn-idle" data-i18n="form.notify"></span>
+              <span class="btn-wait" data-i18n="form.sending"></span>
+            </button>
+          </div>
+          <p class="invite-done" aria-live="polite" data-i18n="form.notifyDone"></p>
+        </form>
+      </section>
     </main>
 
-    <section class="invite">
-      <form id="form-story" class="invite-block" method="POST" target="form-frame">
-        <h2 data-i18n="form.storyTitle"></h2>
-        <p class="invite-lead" data-i18n="form.storyLead"></p>
-        <div class="invite-fields">
-          <label class="sr-only" for="story-text" data-i18n="form.storyField"></label>
-          <textarea
-            id="story-text"
-            name="story"
-            rows="4"
-            required
-            data-i18n-placeholder="form.storyPlaceholder"
-          ></textarea>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
-          <input type="hidden" name="kind" value="story" />
-          <button type="submit" class="btn btn-ink" data-i18n="form.send"></button>
-        </div>
-        <p class="invite-done" data-i18n="form.storyDone"></p>
-      </form>
-
-      <form id="form-notify" class="invite-block" method="POST" target="form-frame">
-        <h2 data-i18n="form.notifyTitle"></h2>
-        <div class="invite-fields invite-row">
-          <label class="sr-only" for="notify-email" data-i18n="form.emailField"></label>
-          <input
-            id="notify-email"
-            name="email"
-            type="email"
-            required
-            autocomplete="email"
-            data-i18n-placeholder="form.emailPlaceholder"
-          />
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
-          <input type="hidden" name="kind" value="notify" />
-          <button type="submit" class="btn btn-terra" data-i18n="form.notify"></button>
-        </div>
-        <p class="invite-done" data-i18n="form.notifyDone"></p>
-      </form>
-    </section>
-
-    <iframe class="form-frame" name="form-frame" title=""></iframe>
+    <iframe class="form-frame" name="form-frame-story" title=""></iframe>
+    <iframe class="form-frame" name="form-frame-notify" title=""></iframe>
 
     <script src="i18n.js"></script>
     <script src="demo.js"></script>

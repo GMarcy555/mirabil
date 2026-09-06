@@ -7,7 +7,7 @@ const I18N = {
       p1: "On Tripadvisor and Google, famous sights sit between 4.6 and 4.8. Park Güell does. Palau de la Música does. You still don't know which hour to give away.",
       quote: "Instead of giving it a star rating, you compare it to places you've already visited.",
       p3: "No reviews to write, no complicated rating scales to figure out. Just one simple choice: this or that? Over time, this creates ratings based on real experiences, making them far more representative and meaningful.",
-      note: "This isn't a finished app — it's just a demo. If you've ever stood in line for a 4.8-rated place only to be completely disappointed, this project might be interesting to you too. We're curious to know if others have had similar experiences.",
+      note: "This isn't a finished app — it's just a demo.",
       kicker: "A look at how Barcelona attractions compare",
     },
     form: {
@@ -16,6 +16,7 @@ const I18N = {
       storyPlaceholder: "e.g. Park Güell — packed and overpriced for what it was",
       storyField: "Your story",
       send: "Send",
+      sending: "Sending…",
       storyDone: "Got it. Thank you.",
       notifyTitle: "Want to be first to try it when we launch?",
       emailField: "Email",
@@ -96,7 +97,7 @@ const I18N = {
       p1: "A hagyományos csillagos értékelések nem reprezentatívak. Szinte minden népszerű látványosság 4,3–4,7 csillag körül van, mert az emberek nem szeretik bevallani maguknak, hogy kidobott pénz és idő volt.",
       quote: "Ahelyett, hogy csillagokkal értékelnél, összehasonlítod azokkal a helyekkel, ahol már jártál.",
       p3: "Nem kell értékeléseket írni, bonyolult skálákon értékelni, csak kettő közül választani: ez vagy az? Ezzel a módszerrel idővel tapasztalatokon alapuló, sokkal reprezentatív értékelések jönnek létre.",
-      note: "Ez nem egy kész app, csak egy demo. Ha te is álltál már sorban egy 4,8-as értékelésű helyen, ami teljes csalódás volt, akkor érdekes lehet számodra is ez a projekt. Kíváncsiak vagyunk, másnak is volt-e hasonló tapasztalata.",
+      note: "Ez nem egy kész app, csak egy demo.",
       kicker: "Egy példa Barcelona látványosságainak összehasonlításáról",
     },
     form: {
@@ -105,6 +106,7 @@ const I18N = {
       storyPlaceholder: "pl. Park Güell — tömeg volt, és drága ahhoz képest, amit kaptam",
       storyField: "A sztori",
       send: "Küldés",
+      sending: "Küldés…",
       storyDone: "Megkaptuk. Köszönjük.",
       notifyTitle: "Szóljunk, ha elindul?",
       emailField: "Email",

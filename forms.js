@@ -53,6 +53,11 @@ const FORM_URL = "https://script.google.com/macros/s/AKfycbzu-qa0mw3w8RlMPt9iKWo
       pending = true;
       failSafe = window.setTimeout(finish, 10000);
 
+      if (window.posthog) {
+        var kind = form.querySelector("input[name='kind']");
+        window.posthog.capture("form_submitted", { kind: kind ? kind.value : "unknown" });
+      }
+
       window.setTimeout(function () {
         form.submit();
         form.querySelectorAll("button[type='submit']").forEach(function (btn) {

@@ -25,7 +25,7 @@ const I18N = {
       notifyDone: "We'll let you know.",
     },
     captions: {
-      hook: "The Sagrada Familia was at the top of every list, but in reality, it was far from the best experience.",
+      hook: "Barcelona mapped with 0–100 scores from comparisons — not star averages.",
       city: "Choose a city you've already visited.",
       visited: "Select the places you've visited. You'll compare them later.",
       pairs: "Choose which of the two places was the better experience. It's much easier to rate, and it results in a more accurate ranking.",
@@ -33,11 +33,7 @@ const I18N = {
       close: "This makes the ranking much more representative and gives each place a rating based on real experiences.",
     },
     hook: {
-      user: "travel.lists",
-      time: "2d",
-      likes: "48,201 likes",
-      body: "The Sagrada Família is a MUST in Barcelona. 4.8 stars for a reason.",
-      badge: "4.8",
+      title: "Barcelona",
     },
     city: {
       wordmark: "Mirabil",
@@ -70,7 +66,6 @@ const I18N = {
       subtitle: "Barcelona · from nine comparisons",
       worth: "Worth it",
       hyped: "Overhyped",
-      google: "Google",
     },
     close: {
       line1: "Stars are noisy.",
@@ -115,7 +110,7 @@ const I18N = {
       notifyDone: "Szólunk.",
     },
     captions: {
-      hook: "Minden lista tetején a Sagrada Familia szerepelt, de valójában messze nem ez volt a legjobb élmény.",
+      hook: "Barcelona 0–100-as pontokkal, összehasonlításokból — nem csillagos átlagból.",
       city: "Válassz egy várost, ahol voltál már.",
       visited: "Válaszd ki azokat a helyeket, amiket megnéztél. Ezeket kell majd később összehasonlítani.",
       pairs: "Két hely közül kell kiválaszd amelyik jobb élményként maradt meg. Sokkal könnyebb értékelni, és pontosabb rangsort is eredményez.",
@@ -123,11 +118,7 @@ const I18N = {
       close: "A lista így sokkal reprezentatív lesz, és valós értékeléseket ad a helyeknek.",
     },
     hook: {
-      user: "travel.lists",
-      time: "2 nap",
-      likes: "48 201 kedvelés",
-      body: "A Sagrada Família KÖTELEZŐ Barcelonában. 4,8 csillag, nem véletlenül.",
-      badge: "4,8",
+      title: "Barcelona",
     },
     city: {
       wordmark: "Mirabil",
@@ -160,7 +151,6 @@ const I18N = {
       subtitle: "Barcelona · kilenc összehasonlításból",
       worth: "Megérte",
       hyped: "Túlértékelt",
-      google: "Google",
     },
     close: {
       line1: "A csillagok pontatlanok.",

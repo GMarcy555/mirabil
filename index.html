@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Mirabil</title>
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css?v=6" />
     <script>
       !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
       if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && location.protocol !== "file:") {
@@ -57,51 +58,12 @@
                 </div>
 
                 <div class="scenes">
-                  <section class="scene is-on" id="scene-hook" data-scene="hook">
-                    <article class="ig">
-                      <header class="ig-head">
-                        <span class="ig-avatar"></span>
-                        <div>
-                          <p class="ig-user" data-i18n="hook.user"></p>
-                          <p class="ig-time" data-i18n="hook.time"></p>
-                        </div>
-                      </header>
-                      <div class="ig-shot shot" data-place="sagrada">
-                        <img src="images/sagrada.webp" alt="" />
-                        <span class="ig-badge" data-i18n="hook.badge"></span>
-                      </div>
-                      <div class="ig-actions" aria-hidden="true">
-                        <svg class="ig-heart" viewBox="0 0 24 24" width="22" height="22">
-                          <path
-                            d="M12 20s-7-4.4-9.2-8.2C1.2 8.8 3 6 6.1 6c1.7 0 3.1.9 3.9 2.2C10.8 6.9 12.2 6 13.9 6c3.1 0 4.9 2.8 3.3 5.8C19 15.6 12 20 12 20z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.6"
-                          />
-                        </svg>
-                        <svg viewBox="0 0 24 24" width="22" height="22">
-                          <path
-                            d="M4 6h16v10H8l-4 3V6z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.6"
-                          />
-                        </svg>
-                        <svg viewBox="0 0 24 24" width="22" height="22">
-                          <path
-                            d="M4 12l16-7-5 16-3-6-8-3z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.6"
-                          />
-                        </svg>
-                      </div>
-                      <p class="ig-likes" data-i18n="hook.likes"></p>
-                      <p class="ig-body">
-                        <strong data-i18n="hook.user"></strong>
-                        <span data-i18n="hook.body"></span>
-                      </p>
-                    </article>
+                  <section class="scene scene-hook is-on" id="scene-hook" data-scene="hook">
+                    <div class="app-head app-head-tight hook-head">
+                      <p class="wordmark" data-i18n="city.wordmark"></p>
+                      <h1 data-i18n="hook.title"></h1>
+                    </div>
+                    <div class="hook-map" id="hook-map"></div>
                   </section>
 
                   <section class="scene" id="scene-city" data-scene="city">
@@ -229,8 +191,9 @@
     <iframe class="form-frame" name="form-frame-story" title=""></iframe>
     <iframe class="form-frame" name="form-frame-notify" title=""></iframe>
 
-    <script src="i18n.js?v=5"></script>
-    <script src="demo.js?v=5"></script>
-    <script src="forms.js?v=5"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="i18n.js?v=6"></script>
+    <script src="demo.js?v=8"></script>
+    <script src="forms.js?v=6"></script>
   </body>
 </html>

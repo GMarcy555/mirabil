@@ -67,9 +67,9 @@ DEMÓ — magyarázó sor a telefon fölött
 -------------------------------------
 Hat jelenet, ebben a sorrendben.
 
-1. Instagram
-EN: The Sagrada Familia was at the top of every list, but in reality, it was far from the best experience.
-HU: Minden lista tetején a Sagrada Familia szerepelt, de valójában messze nem ez volt a legjobb élmény.
+1. Térkép
+EN: Barcelona mapped with 0–100 scores from comparisons — not star averages.
+HU: Barcelona 0–100-as pontokkal, összehasonlításokból — nem csillagos átlagból.
 
 2. Városválasztás
 EN: Choose a city you’ve already visited.
@@ -95,17 +95,9 @@ HU: A lista így sokkal reprezentatív lesz, és valós értékeléseket ad a he
 DEMÓ — a telefonban
 -------------------
 
-Instagram-poszt
-Felhasználó EN: travel.lists
-Felhasználó HU: travel.lists
-Idő EN: 2d
-Idő HU: 2 nap
-Kedvelések EN: 48,201 likes
-Kedvelések HU: 48 201 kedvelés
-Szöveg EN: The Sagrada Família is a MUST in Barcelona. 4.8 stars for a reason.
-Szöveg HU: A Sagrada Família KÖTELEZŐ Barcelonában. 4,8 csillag, nem véletlenül.
-Jelvény EN: 4.8
-Jelvény HU: 4,8
+Térkép
+Cím EN: Barcelona
+Cím HU: Barcelona
 
 Város képernyő
 Wordmark EN: Mirabil
@@ -171,8 +163,6 @@ Címke megérte EN: Worth it
 Címke megérte HU: Megérte
 Címke túltolt EN: Overhyped
 Címke túltolt HU: Túlértékelt
-Pontszám előtag EN: Google
-Pontszám előtag HU: Google
 
 Záró képernyő
 Sor 1 EN: Stars are noisy.

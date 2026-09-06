@@ -34,14 +34,30 @@ function shotHtml(id) {
   );
 }
 
-const GOOGLE = {
-  palau: "4.7",
-  santpau: "4.7",
-  sagrada: "4.7",
-  ciutadella: "4.5",
-  guell: "4.6",
-  boqueria: "4.4",
-  rambla: "4.2",
+const COORDS = {
+  sagrada: [41.4036, 2.1744],
+  guell: [41.4145, 2.1527],
+  rambla: [41.3813, 2.1734],
+  boqueria: [41.3817, 2.1715],
+  palau: [41.3874, 2.1752],
+  santpau: [41.4136, 2.1744],
+  ciutadella: [41.388, 2.187],
+  batllo: [41.3917, 2.1649],
+  bunkers: [41.4193, 2.1556],
+  campnou: [41.3809, 2.1228],
+};
+
+const LABEL_SIDE = {
+  boqueria: "left",
+  rambla: "right",
+  batllo: "left",
+  palau: "right",
+  santpau: "left",
+  sagrada: "right",
+  guell: "left",
+  bunkers: "right",
+  campnou: "right",
+  ciutadella: "left",
 };
 
 const CHECK_AFTER_GUELL = [
@@ -55,27 +71,27 @@ const CHECK_AFTER_GUELL = [
 
 const PAIRS = [
   { a: "palau", b: "guell", win: "palau" },
-  { a: "santpau", b: "sagrada", win: "santpau" },
+  { a: "sagrada", b: "santpau", win: "santpau" },
   { a: "palau", b: "boqueria", win: "palau" },
-  { a: "santpau", b: "ciutadella", win: "santpau" },
+  { a: "ciutadella", b: "santpau", win: "santpau" },
   { a: "palau", b: "sagrada", win: "palau" },
-  { a: "ciutadella", b: "rambla", win: "ciutadella" },
+  { a: "rambla", b: "ciutadella", win: "ciutadella" },
   { a: "sagrada", b: "guell", win: "sagrada" },
-  { a: "sagrada", b: "rambla", win: "sagrada" },
+  { a: "rambla", b: "sagrada", win: "sagrada" },
   { a: "guell", b: "boqueria", win: "guell" },
 ];
 
 const ELO_K = 32;
 const ELO_START = 1500;
-const PAIR_GAP = 3200;
-const PAIR_VOTE = 1400;
-const PAIR_START = 25450;
+const PAIR_GAP = 2400;
+const PAIR_VOTE = 1050;
+const PAIR_START = 20400;
 
 function expectedScore(ra, rb) {
   return 1 / (1 + Math.pow(10, (rb - ra) / 400));
 }
 
-function rankFromPairs(pairs) {
+function scoresFromPairs(pairs) {
   const scores = {};
   pairs.forEach(function (pair) {
     if (scores[pair.a] === undefined) scores[pair.a] = ELO_START;
@@ -88,8 +104,23 @@ function rankFromPairs(pairs) {
     scores[winner] += ELO_K * (1 - ea);
     scores[loser] += ELO_K * (0 - (1 - ea));
   });
-  return Object.keys(scores).sort(function (a, b) {
-    return scores[b] - scores[a];
+  return scores;
+}
+
+function eloToHundred(elo) {
+  return Math.max(0, Math.min(100, Math.round(70 + (elo - 1500) / 2)));
+}
+
+const ELO_SCORES = scoresFromPairs(PAIRS);
+
+function displayScore(id) {
+  const elo = ELO_SCORES[id] === undefined ? ELO_START : ELO_SCORES[id];
+  return eloToHundred(elo);
+}
+
+function rankedIds() {
+  return Object.keys(ELO_SCORES).sort(function (a, b) {
+    return ELO_SCORES[b] - ELO_SCORES[a];
   });
 }
 
@@ -99,6 +130,96 @@ const state = {
   lang: "en",
   timers: [],
 };
+
+const mapState = {
+  map: null,
+  markers: {},
+};
+
+function poiIcon(id, visible) {
+  const side = LABEL_SIDE[id];
+  const cls =
+    "poi" +
+    (side ? " poi--" + side : "") +
+    (visible ? " is-in" : "");
+  return L.divIcon({
+    className: "poi-icon",
+    html:
+      '<div class="' +
+      cls +
+      '" data-place="' +
+      id +
+      '"><span class="poi-pin">' +
+      displayScore(id) +
+      '</span><span class="poi-name">' +
+      copy().places[id].name +
+      "</span></div>",
+    iconSize: [26, 28],
+    iconAnchor: [13, 28],
+  });
+}
+
+function updateMapMarkers(visible) {
+  if (!mapState.map) return;
+  PLACE_IDS.forEach(function (id) {
+    const marker = mapState.markers[id];
+    if (marker) marker.setIcon(poiIcon(id, visible));
+  });
+}
+
+function ensureMap() {
+  if (typeof L === "undefined") return;
+  if (mapState.map) {
+    updateMapMarkers(false);
+    mapState.map.invalidateSize();
+    return;
+  }
+  const map = L.map("hook-map", {
+    zoomControl: false,
+    attributionControl: true,
+    dragging: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false,
+    touchZoom: false,
+  });
+  L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+    {
+      attribution: "Tiles &copy; Esri",
+      maxZoom: 16,
+    }
+  ).addTo(map);
+  const bounds = L.latLngBounds(
+    PLACE_IDS.map(function (id) {
+      return COORDS[id];
+    })
+  );
+  map.fitBounds(bounds, { padding: [36, 36], maxZoom: 13 });
+  PLACE_IDS.forEach(function (id) {
+    const marker = L.marker(COORDS[id], {
+      icon: poiIcon(id, false),
+      interactive: false,
+      keyboard: false,
+    });
+    marker.addTo(map);
+    mapState.markers[id] = marker;
+  });
+  mapState.map = map;
+  requestAnimationFrame(function () {
+    map.invalidateSize();
+  });
+}
+
+function revealMapPins() {
+  PLACE_IDS.forEach(function (id, index) {
+    after(180 + index * 160, function () {
+      const el = document.querySelector('.poi[data-place="' + id + '"]');
+      if (el) el.classList.add("is-in");
+    });
+  });
+}
 
 function copy() {
   return I18N[state.lang];
@@ -118,10 +239,6 @@ function lookup(path) {
   return path.split(".").reduce(function (obj, key) {
     return obj[key];
   }, copy());
-}
-
-function formatScore(score) {
-  return state.lang === "hu" ? score.replace(".", ",") : score;
 }
 
 function applyCopy() {
@@ -178,30 +295,30 @@ function buildRank() {
   const list = document.getElementById("rank-list");
   const places = copy().places;
   const labels = copy().rank;
-  list.innerHTML = rankFromPairs(PAIRS).map(function (id, index) {
-    var tag = "";
-    if (id === "palau") {
-      tag = '<span class="tag tag-worth">' + labels.worth + "</span>";
-    }
-    if (id === "guell") {
-      tag = '<span class="tag tag-hyped">' + labels.hyped + "</span>";
-    }
-    return (
-      '<li class="rank-row"><span class="rank-n">' +
-      (index + 1) +
-      "</span>" +
-      shotHtml(id) +
-      '<span><span class="rank-name">' +
-      places[id].name +
-      '</span><span class="rank-google">' +
-      labels.google +
-      " " +
-      formatScore(GOOGLE[id]) +
-      "</span></span>" +
-      tag +
-      "</li>"
-    );
-  }).join("");
+  list.innerHTML = rankedIds()
+    .map(function (id, index) {
+      var tag = "";
+      if (id === "palau") {
+        tag = '<span class="tag tag-worth">' + labels.worth + "</span>";
+      }
+      if (id === "guell") {
+        tag = '<span class="tag tag-hyped">' + labels.hyped + "</span>";
+      }
+      return (
+        '<li class="rank-row"><span class="rank-n">' +
+        (index + 1) +
+        "</span>" +
+        shotHtml(id) +
+        '<span><span class="rank-name">' +
+        places[id].name +
+        '</span><span class="rank-score">' +
+        displayScore(id) +
+        "</span></span>" +
+        tag +
+        "</li>"
+      );
+    })
+    .join("");
 }
 
 function fillCard(el, id) {
@@ -250,6 +367,11 @@ function showScene(name) {
   document.querySelectorAll(".dots li").forEach(function (dot, i) {
     dot.classList.toggle("is-on", i === index);
   });
+  if (name === "hook" && mapState.map) {
+    requestAnimationFrame(function () {
+      mapState.map.invalidateSize();
+    });
+  }
 }
 
 function setCaption(key, instant) {
@@ -332,8 +454,8 @@ function resetVisuals() {
   document.getElementById("place-search").value = "";
   document.getElementById("continue").disabled = true;
   document.getElementById("continue").classList.remove("is-ready");
-  document.querySelector(".ig-heart").classList.remove("is-liked");
   document.getElementById("tap").classList.remove("is-pulse");
+  updateMapMarkers(false);
 }
 
 function play() {
@@ -342,24 +464,25 @@ function play() {
   buildCities();
   buildPlaces();
   buildRank();
+  ensureMap();
   resetVisuals();
   showScene("hook");
   setCaption("hook", true);
-
-  after(1800, function () {
-    document.querySelector(".ig-heart").classList.add("is-liked");
+  after(80, function () {
+    if (mapState.map) mapState.map.invalidateSize();
   });
+  revealMapPins();
 
   after(5250, function () {
     showScene("city");
     setCaption("city");
   });
 
-  after(5850, function () {
-    typeText(document.getElementById("city-search"), "Barcelona", 90, filterCities);
+  after(5700, function () {
+    typeText(document.getElementById("city-search"), "Barcelona", 68, filterCities);
   });
 
-  after(7550, function () {
+  after(6975, function () {
     const row = cityRow("barcelona");
     tap(row);
     after(150, function () {
@@ -367,37 +490,37 @@ function play() {
     });
   });
 
-  after(10050, function () {
+  after(8850, function () {
     showScene("visited");
     setCaption("visited");
   });
 
-  after(10850, function () {
-    typeText(document.getElementById("place-search"), "Park", 110, filterPlaces);
+  after(9450, function () {
+    typeText(document.getElementById("place-search"), "Park", 82, filterPlaces);
   });
 
-  after(12750, function () {
+  after(10875, function () {
     checkPlace("guell");
   });
 
-  after(14250, function () {
+  after(12000, function () {
     document.getElementById("place-search").value = "";
     filterPlaces("");
   });
 
   CHECK_AFTER_GUELL.forEach(function (id, index) {
-    after(15450 + index * 1200, function () {
+    after(12900 + index * 900, function () {
       checkPlace(id);
     });
   });
 
-  after(23050, function () {
+  after(18600, function () {
     const btn = document.getElementById("continue");
     btn.disabled = false;
     btn.classList.add("is-ready");
   });
 
-  after(24050, function () {
+  after(19350, function () {
     tap(document.getElementById("continue"));
   });
 

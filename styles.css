@@ -529,6 +529,7 @@ ol {
 .scene.is-on {
   opacity: 1;
   visibility: visible;
+  z-index: 2;
 }
 
 .app-head h1,
@@ -669,82 +670,124 @@ ol {
   background: var(--terracotta);
 }
 
-.ig {
+.scene-hook {
+  padding: 6px 0 0;
+}
+
+.hook-head {
+  flex-shrink: 0;
+  padding: 0 16px;
+}
+
+.hook-head h1 {
+  font-size: 20px;
+}
+
+.hook-map {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  margin-top: 6px;
+  background: #eceae4;
+}
+
+.hook-map .leaflet-container {
+  background: #eceae4;
+  font-family: var(--sans);
+}
+
+.hook-map .leaflet-control-attribution {
+  font-size: 7px;
+  line-height: 1.2;
+  background: rgba(255, 255, 255, 0.72);
+  max-width: 70%;
+}
+
+.hook-map .leaflet-control-attribution a {
+  color: #7a746c;
+}
+
+.hook-map .leaflet-marker-pane,
+.hook-map .leaflet-marker-icon,
+.poi-icon {
+  background: none !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+.poi {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: var(--paper);
-  margin: 0 -8px;
-  padding: 8px 8px 0;
-  border-radius: 8px;
+  align-items: center;
+  width: 26px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
-.ig-head {
+.poi.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.poi-pin {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  justify-content: center;
+  width: 26px;
+  height: 20px;
+  background: #e03131;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  border-radius: 5px 5px 3px 3px;
+  box-shadow: 0 1px 2px rgba(28, 23, 18, 0.28);
 }
 
-.ig-avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #c4b49a;
-}
-
-.ig-user {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.ig-time {
-  font-size: 10px;
-  color: var(--muted);
-}
-
-.ig-shot {
-  position: relative;
-  height: 210px;
-  border-radius: 2px;
-}
-
-.ig-badge {
+.poi-pin::after {
+  content: "";
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  z-index: 1;
-  padding: 4px 8px;
-  background: var(--paper);
-  font-family: var(--serif);
-  font-size: 16px;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  margin-left: -6px;
+  border: 6px solid transparent;
+  border-top-color: #e03131;
+  border-bottom-width: 0;
 }
 
-.ig-actions {
-  display: flex;
-  gap: 14px;
-  padding: 10px 2px 4px;
-  color: var(--ink);
-}
-
-.ig-heart.is-liked path {
-  fill: #c43b3b;
-  stroke: #c43b3b;
-}
-
-.ig-likes {
-  font-size: 12px;
+.poi-name {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 72px;
+  margin-left: -36px;
+  font-size: 8px;
   font-weight: 600;
-  margin-bottom: 6px;
+  line-height: 1.15;
+  color: #1a1714;
+  text-align: center;
+  text-shadow:
+    0 0 3px #fff,
+    0 0 3px #fff,
+    1px 1px 0 #fff;
 }
 
-.ig-body {
-  font-size: 12px;
-  line-height: 1.4;
+.poi--left .poi-name {
+  left: 0;
+  margin-left: -70px;
+  text-align: right;
 }
 
-.ig-body strong {
-  margin-right: 6px;
+.poi--right .poi-name {
+  left: 100%;
+  margin-left: -2px;
+  text-align: left;
 }
 
 .shot {
@@ -970,11 +1013,12 @@ ol {
   font-size: 13px;
 }
 
-.rank-google {
+.rank-score {
   display: block;
   margin-top: 2px;
-  font-size: 10px;
-  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--terracotta);
 }
 
 .tag {

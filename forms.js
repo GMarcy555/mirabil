@@ -70,4 +70,22 @@ const FORM_URL = "https://script.google.com/macros/s/AKfycbzu-qa0mw3w8RlMPt9iKWo
 
     frame.addEventListener("load", finish);
   });
+
+  const cta = document.getElementById("cta-join");
+  const notifyForm = document.getElementById("form-notify");
+  const notifyEmail = document.getElementById("notify-email");
+  if (cta && notifyForm && notifyEmail) {
+    cta.addEventListener("click", function (event) {
+      event.preventDefault();
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      notifyForm.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+      window.setTimeout(function () {
+        if (notifyForm.classList.contains("is-sent")) return;
+        notifyEmail.classList.remove("is-pop");
+        void notifyEmail.offsetWidth;
+        notifyEmail.classList.add("is-pop");
+        notifyEmail.focus({ preventScroll: true });
+      }, reduced ? 0 : 480);
+    });
+  }
 })();

@@ -246,6 +246,10 @@ function applyCopy() {
   document.querySelectorAll("[data-i18n]").forEach(function (el) {
     el.textContent = lookup(el.dataset.i18n);
   });
+  const quoteKey = "land." + copy().land.quoteKey;
+  document.querySelectorAll(".copy [data-i18n]").forEach(function (el) {
+    el.classList.toggle("copy-quote", el.dataset.i18n === quoteKey);
+  });
   document.getElementById("city-search").placeholder = copy().city.search;
   document.getElementById("place-search").placeholder = copy().visited.search;
   document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {

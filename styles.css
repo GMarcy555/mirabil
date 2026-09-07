@@ -44,6 +44,21 @@ body {
   justify-content: space-between;
 }
 
+.site-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cta-join {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
 .page {
   width: min(100%, 1100px);
   margin: 0 auto;
@@ -93,12 +108,14 @@ body {
   font-weight: 400;
   line-height: 1.45;
   color: #3a342c;
-  margin: 4px 0 18px;
-  padding: 0 0 8px;
-  border-bottom: 1px solid rgba(185, 74, 40, 0.45);
-  width: fit-content;
+  padding: 2px 0 2px 16px;
+  border-left: 2px solid #8f877c;
   max-width: 100%;
   overflow-wrap: break-word;
+}
+
+.copy p.copy-quote {
+  margin: 6px 0 20px 12px;
 }
 
 .copy-note {
@@ -186,6 +203,26 @@ body {
   min-width: 0;
 }
 
+#form-notify {
+  scroll-margin-top: 28px;
+}
+
+.invite input[type="email"].is-pop {
+  animation: field-pop 0.7s ease;
+}
+
+@keyframes field-pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.035);
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 4px rgba(185, 74, 40, 0.18);
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -247,6 +284,11 @@ body {
     animation: none;
     border-right-color: currentColor;
     opacity: 0.45;
+  }
+
+  .invite input[type="email"].is-pop {
+    animation: none;
+    border-color: var(--terracotta);
   }
 }
 
@@ -1218,7 +1260,6 @@ ol {
   }
 
   .copy-quote {
-    width: 100%;
     font-size: 17px;
   }
 
@@ -1256,5 +1297,11 @@ ol {
 
   .btn {
     height: 48px;
+  }
+
+  .cta-join {
+    height: 40px;
+    padding: 0 14px;
+    font-size: 13px;
   }
 }
